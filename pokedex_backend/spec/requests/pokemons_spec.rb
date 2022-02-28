@@ -1,9 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe "Pokemons", type: :request do
-  describe "GET /pokemons" do
+RSpec.describe "pokemons", type: :request do
+
+  before(:all) do
     Pokemon.destroy_all
     Pokemon.import_pokemons
+  end
+
+  describe "GET /pokemons" do
     it "works!" do
       get "/pokemons"
       expect(response).to have_http_status(200)
