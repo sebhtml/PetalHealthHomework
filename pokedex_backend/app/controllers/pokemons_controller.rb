@@ -30,4 +30,9 @@ class PokemonsController < ActionController::API
     pokemon.update!(changes)
     render json: pokemon
   end
+
+  # DELETE /pokemons/:id
+  def destroy
+    Pokemon.destroy params[:id]
+  end
 end

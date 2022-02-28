@@ -77,4 +77,27 @@ RSpec.describe "pokemons", type: :request do
       expect(legendary_pikachu["legendary"]).to eq(true)
     end
   end
+
+  describe "DELETE /pokemons/:id" do
+    flabebe_pokemon_number = 669
+    it "A Pokemon can be deleted." do
+      get "/pokemons/pokemon_number/#{flabebe_pokemon_number}"
+      expect(response).to have_http_status(200)
+      outputs = JSON.parse(response.body)
+      expect(outputs.size).to be == 1
+
+      flabebe_pokemon = outputs.first
+      expect(flabebe_pokemon["name"]).to eq("Flabébé")
+      flabebe_id = flabebe_pokemon["id"]
+      delete "/pokemons/#{flabebe_id}"
+
+      get "/pokemons/pokemon_number/#{flabebe_pokemon_number}"
+      expect(response).to have_http_status(200)
+      outputs = JSON.parse(response.body)
+      expect(outputs.size).to be == 0
+
+      expect { get "/pokemons/#{flabebe_id}" }.to raise_exception(ActiveRecord::RecordNotFound)
+    end
+  end
+
 end

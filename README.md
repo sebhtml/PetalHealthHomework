@@ -12,7 +12,7 @@
 - [x] Read pokemons
 - [x] Read a pokemon
 - [x] Update a pokemon
-- [ ] Delete a pokemon
+- [x] Delete a pokemon
 - [ ] Paginated list of pokemons
 - [x] Solution in a GitHub repository
 
@@ -32,6 +32,7 @@ Note: JSON format is used.
 | `GET /pokemons/pokemon_number/:pokemon_number`       | Get all pokemons with the given pokemon number. |
 | `GET /pokemons/:id`                                  | Get pokemon with the given id (not pokemon number). |
 | `PUT /pokemons/:id`                                  | Update a pokemon using its unique id. See the Postman PUT test that makes Pikachu legendary. |
+| `DELETE /pokemons/:id`                               | Delete a pokemon using its unique id. See the Postman DELETE test that destroys flabébé. |
 
 # Backend deployment
 
