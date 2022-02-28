@@ -1,9 +1,28 @@
 class PokemonsController < ActionController::API
 
+  private
+
+  def self.filter_params(params)
+    result = {}
+    params.each do |key, value|
+      if Pokemon.has_attribute? key and key != "id"
+        result[key] = value
+      end
+    end
+    result
+  end
+
+  public
+
   # GET /pokemons
   def index
     pokemons = Pokemon.all
     render json: pokemons
+  end
+
+  # POST /pokemons
+  def create
+    pokemon = Pokemon.create(PokemonsController.filter_params(params))
   end
 
   # GET /pokemons/pokemon_number/:pokemon_number

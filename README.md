@@ -8,7 +8,7 @@
     - [x] Test `GET /pokemons/:id`
     - [x] Test `PUT /pokemons/:id`
     - [x] Test that every Pokemon has a unique name
-- [ ] Create a pokemon
+- [x] Create a pokemon
 - [x] Read pokemons
 - [x] Read a pokemon
 - [x] Update a pokemon
@@ -28,11 +28,14 @@ Note: JSON format is used.
 
 | *HTTP verb and Resource path*                        | *Description* |
 | ---                                                  | ---           |
-| `GET /pokemons`                                      | Get all pokemons |
+| `GET /pokemons`                                      | Get all pokemons. |
 | `GET /pokemons/pokemon_number/:pokemon_number`       | Get all pokemons with the given pokemon number. |
 | `GET /pokemons/:id`                                  | Get pokemon with the given id (not pokemon number). |
 | `PUT /pokemons/:id`                                  | Update a pokemon using its unique id. See the Postman PUT test that makes Pikachu legendary. |
 | `DELETE /pokemons/:id`                               | Delete a pokemon using its unique id. See the Postman DELETE test that destroys flabébé. |
+| `POST /pokemons`                                     | Create a new pokemon. |
+
+Run `rails routes` to see all routes.
 
 # Backend deployment
 

@@ -100,4 +100,37 @@ RSpec.describe "pokemons", type: :request do
     end
   end
 
+  describe "POST /pokemons" do
+    it "A Pokemon can be created." do
+      payload = {
+        :pokemon_number => 999999,
+        :name => "OmegatronPiSquared",
+        :type1 => "Dragon",
+        :type2 => "Fairy",
+        :total => 0,
+        :health_points => 200,
+        :attack => 999,
+        :defense => 2048,
+        :special_attack => 1920,
+        :special_defense => 1080,
+        :speed => 999,
+        :generation => 999,
+        :legendary => true
+      }
+
+      # Generate total.
+      stats = [:health_points, :attack, :defense, :special_attack, :special_defense, :speed, :generation]
+      stats.each do |stat|
+        payload[:total] += payload[stat]
+      end
+
+      post "/pokemons", params: payload
+
+      get "/pokemons/pokemon_number/#{payload[:pokemon_number]}"
+      expect(response).to have_http_status(200)
+      outputs = JSON.parse(response.body)
+      pokemon = outputs.first
+      expect(pokemon["name"]).to eq(payload[:name])
+    end
+  end
 end
