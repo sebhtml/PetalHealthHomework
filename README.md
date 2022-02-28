@@ -1,10 +1,11 @@
 
 # TODO
 
-- [ ] Ruby on Rails backend API-only app
-- [ ] Test RESTful API with Postman
+- [x] Ruby on Rails backend API-only app
+- [x] Test RESTful API with Postman
 - [ ] Create a pokemon
-- [ ] Read pokemons or a pokemon
+- [x] Read pokemons
+- [ ] Read a pokemon
 - [ ] Update a pokemon
 - [ ] Delete a pokemon
 - [ ] Paginated list of pokemons
@@ -34,7 +35,7 @@ bundle exec rake destroy_pokemons
 bundle exec rake import_pokemons
 
 # Start the server in development mode
-rails serve
+rails server
 ```
 
 # Backend testing
