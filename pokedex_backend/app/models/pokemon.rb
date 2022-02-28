@@ -45,15 +45,15 @@ class Pokemon < ApplicationRecord
         :name => row["Name"],
         :type1 => row["Type 1"],
         :type2 => row["Type 2"],
-        :total => row["Total"],
-        :health_points => row["HP"],
-        :attack => row["Attack"],
-        :defense=> row["Defense"],
-        :special_attack=> row["Sp. Atk"],
-        :special_defense=> row["Sp. Def"],
-        :speed => row["Speed"],
-        :generation=> row["Generation"],
-        :legendary=> row["Legendary"]
+        :total => row["Total"].to_i,
+        :health_points => row["HP"].to_i,
+        :attack => row["Attack"].to_i,
+        :defense => row["Defense"].to_i,
+        :special_attack => row["Sp. Atk"].to_i,
+        :special_defense => row["Sp. Def"].to_i,
+        :speed => row["Speed"].to_i,
+        :generation => row["Generation"].to_i,
+        :legendary => row["Legendary"] == "True"
       }
     end
 
