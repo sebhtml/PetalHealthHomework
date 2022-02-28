@@ -27,21 +27,6 @@ Note: JSON format is used.
 | `/pokemons/pokemon_number/:pokemon_number`  | GET         | Get all pokemons with the given pokemon number. |
 | `/pokemons/:id`                             | GET         | Get pokemon with the given id (not pokemon number). |
 
-# Backend testing
-
-Tests are written using RSpec and using Postman.
-
-
-With RSpec:
-
-```bash
-bundle exec rspec spec/requests/pokemons_spec.rb
-```
-
-With Postman:
-
-use the collection in `postman_backend_tests`.
-
 # Backend deployment
 
 ```bash
@@ -61,10 +46,20 @@ rails server
 
 # Backend testing
 
-The backend RESTful API is tested with Postman.
+Tests are written using RSpec and using Postman.
 
-# Frontend
 
-The frontend is implemented in AngularJS.
+With RSpec:
+
+```bash
+cd pokedex_backend
+bundle exec rspec spec/requests/pokemons_spec.rb
+cd ..
+```
+
+With Postman:
+
+use the collection in `postman_backend_tests`.
+
 
 
