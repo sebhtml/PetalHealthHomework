@@ -3,11 +3,11 @@
 
 - [x] Ruby on Rails backend API-only app
 - [x] Test RESTful API with Postman
--- [x] Test `GET /pokemons`
--- [x] Test `GET /pokemons/pokemon_number/:pokemon_number`
--- [x] Test `GET /pokemons/:id`
--- [x] Test `PUT /pokemons/:id`
--- [ ] Test that every Pokemon has a unique name
+    [x] Test `GET /pokemons`
+    [x] Test `GET /pokemons/pokemon_number/:pokemon_number`
+    [x] Test `GET /pokemons/:id`
+    [x] Test `PUT /pokemons/:id`
+    [ ] Test that every Pokemon has a unique name
 - [ ] Create a pokemon
 - [x] Read pokemons
 - [x] Read a pokemon
