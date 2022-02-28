@@ -1,9 +1,41 @@
 
+# TODO
+
+- [ ] Ruby on Rails backend API-only app
+- [ ] Test RESTful API with Postman
+- [ ] Create a pokemon
+- [ ] Read pokemons or a pokemon
+- [ ] Update a pokemon
+- [ ] Delete a pokemon
+- [ ] Paginated list of pokemons
+- [ ] Solution in a GitHub repository
+
 # Backend
 
 This is a Ruby on Rails API-only application to manage Pokemons.
 
 Data comes from https://gist.githubusercontent.com/armgilles/194bcff35001e7eb53a2a8b441e8b2c6/raw/92200bc0a673d5ce2110aaad4544ed6c4010f687/pokemon.csv
+
+# RESTful API resource paths
+
+Note: JSON format is used.
+
+| *Resource path* | *HTTP verb* | *Description* |
+| ---        | ---         | ---           |
+| `/pokemons` | GET | Get all pokemons |
+
+# Backend deployment
+
+```bash
+# Destroy any existing pokemons
+bundle exec rake destroy_pokemons
+
+# Seed the database with pokemons from the CSV file
+bundle exec rake import_pokemons
+
+# Start the server in development mode
+rails serve
+```
 
 # Backend testing
 
