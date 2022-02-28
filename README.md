@@ -28,6 +28,10 @@ Note: JSON format is used.
 # Backend deployment
 
 ```bash
+
+# Sart using RVM
+source /usr/local/rvm/scripts/rvm
+
 # Destroy any existing pokemons
 bundle exec rake destroy_pokemons
 
