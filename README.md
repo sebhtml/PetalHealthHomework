@@ -21,11 +21,12 @@ Data comes from https://gist.githubusercontent.com/armgilles/194bcff35001e7eb53a
 
 Note: JSON format is used.
 
-| *Resource path*                             | *HTTP verb* | *Description* |
-| ---                                         | ---         | ---           |
-| `/pokemons`                                 | GET         | Get all pokemons |
-| `/pokemons/pokemon_number/:pokemon_number`  | GET         | Get all pokemons with the given pokemon number. |
-| `/pokemons/:id`                             | GET         | Get pokemon with the given id (not pokemon number). |
+| *HTTP verb and Resource path*                        | *Description* |
+| ---                                                  | ---           |
+| `GET /pokemons`                                      | Get all pokemons |
+| `GET /pokemons/pokemon_number/:pokemon_number`       | Get all pokemons with the given pokemon number. |
+| `GET /pokemons/:id`                                  | Get pokemon with the given id (not pokemon number). |
+| `PUT /pokemons/:id`                                  | Update a pokemon using its unique id. See the Postman PUT test that makes Pikachu legendary. |
 
 # Backend deployment
 
