@@ -4,4 +4,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+
+  get 'pokemons/pokemon_number/:pokemon_number', to: 'pokemons#by_pokemon_number'
 end

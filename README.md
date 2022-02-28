@@ -9,7 +9,7 @@
 - [ ] Update a pokemon
 - [ ] Delete a pokemon
 - [ ] Paginated list of pokemons
-- [ ] Solution in a GitHub repository
+- [x] Solution in a GitHub repository
 
 # Backend
 
@@ -21,11 +21,15 @@ Data comes from https://gist.githubusercontent.com/armgilles/194bcff35001e7eb53a
 
 Note: JSON format is used.
 
-| *Resource path* | *HTTP verb* | *Description* |
-| ---        | ---         | ---           |
-| `/pokemons` | GET | Get all pokemons |
+| *Resource path*                             | *HTTP verb* | *Description* |
+| ---                                         | ---         | ---           |
+| `/pokemons`                                 | GET         | Get all pokemons |
+| `/pokemons/pokemon_number/{pokemon_number}` | GET         | Get all pokemons with the given pokemon number. |
 
 # Backend testing
+
+Tests are written using RSpec and using Postman.
+
 
 With RSpec:
 
