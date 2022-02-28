@@ -5,7 +5,7 @@
 - [x] Test RESTful API with Postman
 - [ ] Create a pokemon
 - [x] Read pokemons
-- [ ] Read a pokemon
+- [x] Read a pokemon
 - [ ] Update a pokemon
 - [ ] Delete a pokemon
 - [ ] Paginated list of pokemons
@@ -24,7 +24,8 @@ Note: JSON format is used.
 | *Resource path*                             | *HTTP verb* | *Description* |
 | ---                                         | ---         | ---           |
 | `/pokemons`                                 | GET         | Get all pokemons |
-| `/pokemons/pokemon_number/{pokemon_number}` | GET         | Get all pokemons with the given pokemon number. |
+| `/pokemons/pokemon_number/:pokemon_number`  | GET         | Get all pokemons with the given pokemon number. |
+| `/pokemons/:id`                             | GET         | Get pokemon with the given id (not pokemon number). |
 
 # Backend testing
 

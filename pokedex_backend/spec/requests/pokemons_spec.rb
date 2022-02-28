@@ -15,7 +15,7 @@ RSpec.describe "pokemons", type: :request do
     end
   end
 
-  describe "GET /pokemons/pokemon_number/{pokemon_number}" do
+  describe "GET /pokemons/pokemon_number/:pokemon_number" do
 
     cool_pokemons = {
       1 => "Bulbasaur",
@@ -28,12 +28,18 @@ RSpec.describe "pokemons", type: :request do
 
     cool_pokemons.each do |pokemon_number, name|
       it "Pokemon #{name} has the pokemon number #{pokemon_number}." do
+
         get "/pokemons/pokemon_number/#{pokemon_number}"
         expect(response).to have_http_status(200)
         outputs = JSON.parse(response.body)
         expect(outputs.size).to be >= 1
         pokemon = outputs.first
         expect(pokemon["name"]).to eq(name)
+
+        get "/pokemons/#{pokemon["id"]}"
+        expect(response).to have_http_status(200)
+        pokemon2 = JSON.parse(response.body)
+        expect(pokemon2["name"]).to eq(pokemon["name"])
       end
     end
   end
