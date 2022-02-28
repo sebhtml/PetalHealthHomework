@@ -54,4 +54,10 @@ class PokemonsController < ActionController::API
   def destroy
     Pokemon.destroy params[:id]
   end
+
+  # GET /pokemons/page/:page/per_page/:per_page
+  def paginate
+    pokemons = Pokemon.paginate(params[:page].to_i, params[:per_page].to_i)
+    render json: pokemons
+  end
 end

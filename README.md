@@ -13,7 +13,7 @@
 - [x] Read a pokemon
 - [x] Update a pokemon
 - [x] Delete a pokemon
-- [ ] Paginated list of pokemons
+- [x] Paginated list of pokemons
 - [x] Solution in a GitHub repository
 
 # Backend

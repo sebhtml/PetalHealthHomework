@@ -63,4 +63,8 @@ class Pokemon < ApplicationRecord
   def self.by_pokemon_number(pokemon_number)
     where(pokemon_number: pokemon_number)
   end
+
+  def self.paginate(page, per_page)
+    offset((page-1) * per_page).limit(per_page)
+  end
 end

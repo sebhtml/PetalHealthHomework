@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   get 'pokemons/pokemon_number/:pokemon_number', to: 'pokemons#by_pokemon_number'
+  get 'pokemons/page/:page/per_page/:per_page', to: 'pokemons#paginate'
 end

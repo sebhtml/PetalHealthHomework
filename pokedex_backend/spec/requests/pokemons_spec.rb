@@ -133,4 +133,32 @@ RSpec.describe "pokemons", type: :request do
       expect(pokemon["name"]).to eq(payload[:name])
     end
   end
+
+  describe "GET /pokemons/page/:page/per_page/:per_page" do
+    it "Pokemons can be consulted in a paginated way." do
+      # Read all the pages to get all the pokemons.
+      pokemons1 = []
+      page = 1
+      per_page = 100
+
+      while true
+        get "/pokemons/page/#{page}/per_page/#{per_page}"
+        expect(response).to have_http_status(200)
+        page_pokemons = JSON.parse(response.body)
+        pokemons1.concat(page_pokemons)
+        if page_pokemons.size < per_page
+          break
+        end
+        page += 1
+      end
+
+      # Get all the pokemons in one shot.
+      get "/pokemons"
+      expect(response).to have_http_status(200)
+      pokemons2 = JSON.parse(response.body)
+
+      # Both pokemons lists must be equal.
+      expect(pokemons1).to eq(pokemons2)
+    end
+  end
 end
