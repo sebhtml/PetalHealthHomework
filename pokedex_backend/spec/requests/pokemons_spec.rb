@@ -11,7 +11,13 @@ RSpec.describe "pokemons", type: :request do
     it "works!" do
       get "/pokemons"
       expect(response).to have_http_status(200)
-      expect(JSON.parse(response.body).size).to eq(800)
+      pokemons = JSON.parse(response.body)
+      expect(pokemons.size).to eq(800)
+      pokemons_set = Set.new
+      pokemons.each do |pokemon|
+        pokemons_set << pokemon["name"]
+      end
+      expect(pokemons_set.size).to eq(800)
     end
   end
 
