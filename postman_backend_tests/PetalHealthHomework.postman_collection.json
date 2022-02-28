@@ -70,6 +70,87 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "localhost:3000/pokemons/pokemon_number/25",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Get pikachu, update pikachu to make it legendary, and then make pikachu not legendary.",
+							"const setLegendaryStatus = (pokemon_number, legendary, callback) => {",
+							"  const postRequest = {",
+							"    url: `http://localhost:3000/pokemons/${pokemon_number}`,",
+							"    method: 'PUT',",
+							"    header: {",
+							"      'Content-Type': 'application/json'",
+							"    },",
+							"    body: {",
+							"      mode: 'raw',",
+							"      raw: JSON.stringify({ pokemon: { legendary: legendary }})",
+							"    }",
+							"  };",
+							"",
+							"  pm.sendRequest(postRequest, callback);",
+							"};",
+							"",
+							"const testLegendaryConsequence = (error, response) => {",
+							"  console.log(error ? error : response.json());",
+							"",
+							"  const callback = (error, response) => {",
+							"    response.to.have.status(200)",
+							"    const jsonResponse = response.json();",
+							"    pm.expect(jsonResponse.length).to.be.above(0);",
+							"    const pikachu = jsonResponse[0];",
+							"    pm.expect(pikachu.name).to.be.equal(\"Pikachu\");",
+							"    pm.expect(pikachu.legendary).to.be.equal(true);",
+							"",
+							"    // Reset the legendary state to make the test idempotent.",
+							"    setLegendaryStatus(pikachu_id, previousLegendary, (error, response) => {",
+							"      console.log(error ? error : response.json());",
+							"    });",
+							"  };",
+							"",
+							"  // Check that pikachu is now legendary.",
+							"  pm.sendRequest(\"http://localhost:3000/pokemons/pokemon_number/25\", callback);",
+							"};",
+							"",
+							"pm.test('Success', function() {",
+							"    pm.response.to.have.status(200)",
+							"    const jsonResponse = pm.response.json();",
+							"    pm.expect(jsonResponse.length).to.be.above(0);",
+							"    const pikachu = jsonResponse[0];",
+							"    pm.expect(pikachu.name).to.be.equal(\"Pikachu\");",
+							"    const previousLegendary = pikachu.legendary;",
+							"    pm.expect(previousLegendary).to.be.equal(false);",
+							"    const pikachu_id = pikachu.id;",
+							"",
+							"    setLegendaryStatus(pikachu_id, testLegendaryConsequence);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/pokemons/pokemon_number/25",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pokemons",
+						"pokemon_number",
+						"25"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
