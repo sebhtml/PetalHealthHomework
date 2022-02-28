@@ -40,7 +40,7 @@ class Pokemon < ApplicationRecord
     end
 
     inputs = rows.map do |row|
-      Hash.new(
+      {
         :pokemon_number => row["#"],
         :name => row["Name"],
         :type1 => row["Type 1"],
@@ -53,10 +53,14 @@ class Pokemon < ApplicationRecord
         :special_defense=> row["Sp. Def"],
         :speed => row["Speed"],
         :generation=> row["Generation"],
-        :legendary=> row["Legendary"],
-      )
+        :legendary=> row["Legendary"]
+      }
     end
 
-    self.create(inputs)
+    create(inputs)
+  end
+
+  def self.by_pokemon_number(pokemon_number)
+    where(pokemon_number: pokemon_number)
   end
 end
