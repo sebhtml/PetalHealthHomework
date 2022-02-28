@@ -25,11 +25,23 @@ Note: JSON format is used.
 | ---        | ---         | ---           |
 | `/pokemons` | GET | Get all pokemons |
 
+# Backend testing
+
+With RSpec:
+
+```bash
+bundle exec rspec spec/requests/pokemons_spec.rb
+```
+
+With Postman:
+
+use the collection in `postman_backend_tests`.
+
 # Backend deployment
 
 ```bash
 
-# Sart using RVM
+# Start using RVM
 source /usr/local/rvm/scripts/rvm
 
 # Destroy any existing pokemons

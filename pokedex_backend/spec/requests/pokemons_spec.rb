@@ -2,9 +2,12 @@ require 'rails_helper'
 
 RSpec.describe "Pokemons", type: :request do
   describe "GET /pokemons" do
-    it "works! (now write some real specs)" do
-      get pokemons_index_path
+    Pokemon.destroy_all
+    Pokemon.import_pokemons
+    it "works!" do
+      get "/pokemons"
       expect(response).to have_http_status(200)
+      expect(JSON.parse(response.body).size).to eq(800)
     end
   end
 end
