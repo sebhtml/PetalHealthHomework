@@ -33,8 +33,14 @@ class Pokemon < ApplicationRecord
 
     maybe_download_file(uri, csv_file, csv_file_sha256)
 
+    rows = []
+
     CSV.foreach(csv_file, headers: true) do |row|
-      self.create(
+      rows << row
+    end
+
+    inputs = rows.map do |row|
+      Hash.new(
         :pokemon_number => row["#"],
         :name => row["Name"],
         :type1 => row["Type 1"],
@@ -48,7 +54,9 @@ class Pokemon < ApplicationRecord
         :speed => row["Speed"],
         :generation=> row["Generation"],
         :legendary=> row["Legendary"],
-        )
+      )
     end
+
+    self.create(inputs)
   end
 end
