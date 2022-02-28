@@ -6,7 +6,7 @@
 - [ ] Create a pokemon
 - [x] Read pokemons
 - [x] Read a pokemon
-- [ ] Update a pokemon
+- [x] Update a pokemon
 - [ ] Delete a pokemon
 - [ ] Paginated list of pokemons
 - [x] Solution in a GitHub repository

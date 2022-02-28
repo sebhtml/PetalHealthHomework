@@ -17,4 +17,17 @@ class PokemonsController < ActionController::API
     pokemon = Pokemon.find params[:id]
     render json: pokemon
   end
+
+  # PUT /pokemons/:id
+  def update
+    pokemon = Pokemon.find params[:id]
+    changes = {}
+    params[:pokemon].each do |key, value|
+      if pokemon.has_attribute? key and key != "id"
+        changes[key] = value
+      end
+    end
+    pokemon.update!(changes)
+    render json: pokemon
+  end
 end
