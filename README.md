@@ -1,21 +1,4 @@
 
-# TODO
-
-- [x] Ruby on Rails backend API-only app
-- [x] Test RESTful API with Postman
-    - [x] Test `GET /pokemons`
-    - [x] Test `GET /pokemons/pokemon_number/:pokemon_number`
-    - [x] Test `GET /pokemons/:id`
-    - [x] Test `PUT /pokemons/:id`
-    - [x] Test that every Pokemon has a unique name
-- [x] Create a pokemon
-- [x] Read pokemons
-- [x] Read a pokemon
-- [x] Update a pokemon
-- [x] Delete a pokemon
-- [x] Paginated list of pokemons
-- [x] Solution in a GitHub repository
-
 # Backend
 
 This is a Ruby on Rails API-only application to manage Pokemons.
@@ -71,5 +54,22 @@ With Postman:
 
 use the collection in `postman_backend_tests`.
 
+
+# TODO
+
+- [x] Ruby on Rails backend API-only app
+- [x] Test RESTful API with Postman
+    - [x] Test `GET /pokemons`
+    - [x] Test `GET /pokemons/pokemon_number/:pokemon_number`
+    - [x] Test `GET /pokemons/:id`
+    - [x] Test `PUT /pokemons/:id`
+    - [x] Test that every Pokemon has a unique name
+- [x] Create a pokemon
+- [x] Read pokemons
+- [x] Read a pokemon
+- [x] Update a pokemon
+- [x] Delete a pokemon
+- [x] Paginated list of pokemons
+- [x] Solution in a GitHub repository
 
 
