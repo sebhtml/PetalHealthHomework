@@ -41,7 +41,7 @@ class PokemonsController < ActionController::API
   def update
     pokemon = Pokemon.find params[:id]
     changes = {}
-    params[:pokemon].each do |key, value|
+    params.each do |key, value|
       if pokemon.has_attribute? key and key != "id"
         changes[key] = value
       end

@@ -66,7 +66,7 @@ RSpec.describe "pokemons", type: :request do
       expect(surprised_pikachu["name"]).to eq("Pikachu")
       expect(surprised_pikachu["legendary"]).to eq(false)
       pikachu_id = surprised_pikachu["id"]
-      put "/pokemons/#{pikachu_id}", params: { "pokemon": { "legendary": true }}
+      put "/pokemons/#{pikachu_id}", params: { "legendary": true }
 
       get "/pokemons/pokemon_number/#{pikachu_number}"
       expect(response).to have_http_status(200)

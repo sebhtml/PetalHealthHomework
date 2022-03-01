@@ -21,7 +21,7 @@ const setLegendaryStatus = (pokemon_number, legendary, callback) => {
     },
     body: {
       mode: 'raw',
-      raw: JSON.stringify({ pokemon: { legendary: legendary }})
+      raw: JSON.stringify({ legendary: legendary })
     }
   };
 
