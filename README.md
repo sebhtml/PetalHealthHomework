@@ -21,30 +21,31 @@ Note: JSON format is used.
 
 Run `rails routes` to see all routes.
 
-# Backend deployment
-
-```bash
-cd pokedex_backend
-
-# Start using RVM
-source /usr/local/rvm/scripts/rvm
-
-# Destroy any existing pokemons
-bundle exec rake destroy_pokemons
-
-# Seed the database with pokemons from the CSV file
-bundle exec rake import_pokemons
-
-# Start the server in development mode
-rails server
-```
-
 # Backend deployment (Docker)
 
 ```bash
 cd pokedex_backend
 docker build . -t sebhtml/pokemons-backend:v1
 docker run -d -p 3000:3000 sebhtml/pokemons-backend:v1
+```
+
+# Backend deployment (development)
+
+```bash
+cd pokedex_backend
+
+# Start using RVM to get ruby 3.0.0 on Debian Linux.
+source /usr/local/rvm/scripts/rvm
+
+bundle install
+bundle exec bin/rake db:migrate
+
+# Seed the database with pokemons from the CSV file
+bundle exec bin/rake destroy_pokemons
+bundle exec bin/rake import_pokemons
+
+# Start the server in development mode
+bin/rails server
 ```
 
 
