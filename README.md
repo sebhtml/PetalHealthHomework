@@ -29,7 +29,8 @@ Note: JSON format is used.
 | *HTTP verb and Resource path*                        | *Description* |
 | ---                                                  | ---           |
 | `GET /pokemons`                                      | Get all pokemons. |
-| `GET /pokemons/pokemon_number/:pokemon_number`       | Get all pokemons with the given pokemon number. |
+| `GET /pokemons/page/:page/per_page/:per_page`        | Get pokemons in a paginated mode. |
+| `GET /pokemons/pokemon_number/:pokemon_number`       | Get all pokemons with the given pokemon number. In the Pokédex, Pikachu has pokemon number 25. |
 | `GET /pokemons/:id`                                  | Get pokemon with the given id (not pokemon number). |
 | `PUT /pokemons/:id`                                  | Update a pokemon using its unique id. See the Postman PUT test that makes Pikachu legendary. |
 | `DELETE /pokemons/:id`                               | Delete a pokemon using its unique id. See the Postman DELETE test that destroys flabébé. |
@@ -57,7 +58,6 @@ rails server
 # Backend testing
 
 Tests are written using RSpec and using Postman.
-
 
 With RSpec:
 
