@@ -1,4 +1,6 @@
-// For Postman test "localhost:3000/pokemons/pokemon_number/25"
+// This is the script for "Tests" for Postman test "localhost:3000/pokemons/pokemon_number/25"
+
+// This idempotent test does the following:
 // Get pikachu, update pikachu to make it legendary, and then make pikachu not legendary.
 
 const pikachu_pokemon_number = 25;

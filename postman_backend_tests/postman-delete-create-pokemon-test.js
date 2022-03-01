@@ -1,3 +1,4 @@
+// This is the script for "Tests" for Postman test "localhost:3000/pokemons/pokemon_number/250"
 
 // This idempotent test does the following:
 // GET /pokemons/pokemon_number/:pokemon_number
