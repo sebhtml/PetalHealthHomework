@@ -145,6 +145,8 @@ RSpec.describe "pokemons", type: :request do
         get "/pokemons/page/#{page}/per_page/#{per_page}"
         expect(response).to have_http_status(200)
         page_pokemons = JSON.parse(response.body)
+        expect(page_pokemons.size).to be >= 0
+        expect(page_pokemons.size).to be <= per_page
         pokemons1.concat(page_pokemons)
         if page_pokemons.size < per_page
           break
