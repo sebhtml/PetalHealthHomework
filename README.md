@@ -24,6 +24,7 @@ Run `rails routes` to see all routes.
 # Backend deployment
 
 ```bash
+cd pokedex_backend
 
 # Start using RVM
 source /usr/local/rvm/scripts/rvm
@@ -37,6 +38,15 @@ bundle exec rake import_pokemons
 # Start the server in development mode
 rails server
 ```
+
+# Backend deployment (Docker)
+
+```bash
+cd pokedex_backend
+docker build . -t sebhtml/pokemons-backend:v1
+docker run -d -p 3000:3000 sebhtml/pokemons-backend:v1
+```
+
 
 # Backend testing
 
